@@ -1,11 +1,15 @@
 <template>
-  <div id="app" class="background">
-    <div class="logout">
-      <button @click="logOff()">Logout</button>
+  <div id="app">
+    <div class="row logout">
+      <div class="col-6">
+        <i class="fas fa-umbrella-beach float-left">The KanBanz</i>
+      </div>
+      <div class="col-6"><button @click="logOff()" class="float-right">Logout</button>
+      </div>
     </div>
     <router-view />
   </div>
-</template>
+</template> 
 
 <script>
 export default {

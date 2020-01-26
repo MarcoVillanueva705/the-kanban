@@ -1,6 +1,10 @@
 <template>
-  <div class="board">
-    {{board.title}}
+<!-- <router-link :to="{name: 'boards'}"> -->
+  <!-- <div class="board standout">
+    {{board.title}} -->
+    <div class="board">
+<router-link :to="{name: 'boards'}" class="standout">{{board.title}}</router-link>
+
     <form @submit.prevent="addList">
       <input type="text" placeholder="title" v-model="newList.title" required />
       <button type="submit">New List</button>
@@ -66,7 +70,7 @@ computed: {
 </script>
 <style>
 .board {
-  background-image: url("https://images.unsplash.com/photo-1527609262951-33f360fa5f4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80");
+  background-image: url("https://wallpapercave.com/wp/57nW0Mz.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;

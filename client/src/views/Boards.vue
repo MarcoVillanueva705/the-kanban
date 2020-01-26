@@ -1,5 +1,5 @@
 <template>
-  <div class="boards">
+  <div class="boards font-weight-bold standout">
     WELCOME TO THE BOARDS!!!
     <form @submit.prevent="addBoard">
       <input type="text" placeholder="title" v-model="newBoard.title" required />
@@ -7,8 +7,9 @@
       <button type="submit">Create Board</button>
     </form>
     <div v-for="board in boards" :key="board._id">
-      <router-link :to="{name: 'board', params: {boardId: board._id}}">{{board.title}}</router-link>
-      <button @click="close(board)" class="btn btn-danger">X</button>
+      <router-link :to="{name: 'board', params: {boardId: board._id}}" class="standout">{{board.title}}</router-link>
+      <!-- <button @click="close(board)" class="btn btn-danger">X</button> -->
+      <button @click="close(board)" type="button" class="btn btn-info">Delete Board</button>
     </div>
   </div>
 </template>
@@ -46,9 +47,12 @@ name: "boards",
 
 <style>
 .boards {
-  background-image: url("https://images.unsplash.com/photo-1527609262951-33f360fa5f4c?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1189&q=80");
+  background-image: url("https://cdn.hipwallpaper.com/i/43/84/EQXj6U.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
+}
+.standout{
+  color: yellow;
 }
 </style>
