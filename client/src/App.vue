@@ -2,7 +2,7 @@
   <div id="app">
     <div class="row logout">
       <div class="col-6">
-        <i class="fas fa-umbrella-beach float-left">The KanBanz</i>
+        <i class="fas fa-umbrella-beach float-left">KanBanz</i>
       </div>
       <div class="col-6"><button @click="logOff()" class="float-right">Logout</button>
       </div>
