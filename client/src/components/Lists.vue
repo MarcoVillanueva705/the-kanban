@@ -2,7 +2,7 @@
   <div class="list">
     <div class="card" style="width: 18rem;">
       
-      <div class="card-body">
+      <div class="card-body sea">
         <div>
          <h5 class="card-title">{{list.title}}</h5> <button @click="removeList(list)" class=" btn btn-danger">X</button>
         </div>
@@ -70,4 +70,7 @@ Tasks
 </script>
 
 <style scoped>
+.sea {
+  background-color: #9fe2bf
+}
 </style>

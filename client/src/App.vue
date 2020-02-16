@@ -48,4 +48,5 @@ export default {
 .background {
   background-color: bisque;
 }
+
 </style>
