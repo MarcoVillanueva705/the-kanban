@@ -8,6 +8,7 @@
         <div>
          <h5 class="card-title">{{list.title}}</h5> <button @click="removeList(list)" class=" btn btn-danger btn-sm">Delete List</button>
         </div>
+     
         <form @submit.prevent="addTask">
           <input type="text" placeholder="Task Title" v-model="newTask.description" required />
           <button class="btn btn-secondary btn-sm">New Task</button>       
