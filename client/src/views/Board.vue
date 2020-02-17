@@ -3,11 +3,11 @@
   <!-- <div class="board standout">
     {{board.title}} -->
     <div class="board">
-<router-link :to="{name: 'boards'}" class="standout">{{board.title}}</router-link>
+<router-link :to="{name: 'boards'}" class="standout"><b>{{board.title}}</b></router-link>
 
     <form @submit.prevent="addList">
       <input type="text" placeholder="title" v-model="newList.title" required />
-      <button type="submit">New List</button>
+      <button class=" btn btn-primary btn-sm">New List</button>
     </form>
     <div class="card-deck">
       <lists v-for="list in lists" :key="list.id" :list="list" />
@@ -74,5 +74,9 @@ computed: {
   background-size: cover;
   background-repeat: no-repeat;
   min-height: 100vh;
+}
+
+.card-deck{
+  padding-left: 55px;
 }
 </style>

@@ -2,9 +2,9 @@
   <div id="app">
     <div class="row logout">
       <div class="col-6">
-        <i class="fas fa-umbrella-beach float-left">KanBanz</i>
+        <i class="fas fa-umbrella-beach float-left"><b>KanBanz</b></i>
       </div>
-      <div class="col-6"><button @click="logOff()" class="float-right">Logout</button>
+      <div class="col-6"><button @click="logOff()" class="float-right btn btn-warning btn-sm">Logout</button>
       </div>
     </div>
     <router-view />

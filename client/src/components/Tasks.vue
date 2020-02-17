@@ -1,22 +1,24 @@
 <template>
-  <div class="task">
-    {{task.description}}
+<!-- <section class="container-fluid"> -->
+  <div class="task task-color"><b>
+    {{task.description}}</b>
    
     <select @change="moveTask(task, newListId)" v-model="newListId">
       <option :value="list.id" v-for="list in lists" :key="list.id">{{list.title}}</option>
     </select>
-    <button @click="removeTask(task)" class="btn btn-danger">X</button>
-    <button @click="addComment()" class="btn btn-success">Add Comment</button>
+    <button @click="removeTask(task)" class="btn btn-danger btn-sm">Remove Task</button>
+    <button @click="addComment()" class="btn btn-success btn-sm">Add Comment</button>
     
     <div>
       <form @submit.prevent="addComment">
         <input type="text" placeholder="Comment..." v-model="newComment.content" required />
-        <button type="submit">Comment</button>
+        <!-- <button type="submit">Comment</button> -->
       </form>
     </div>
 
     <comments v-for="comment in comments" :key="comment.id" :comment="comment" />
   </div>
+<!-- </section> -->
 </template>
 
 <script>
@@ -78,4 +80,7 @@ export default {
 </script>
 
 <style>
+.task-color {
+  background-color: #FF6347
+}
 </style>
