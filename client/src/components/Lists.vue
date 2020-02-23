@@ -24,6 +24,8 @@
 
 <script>
 import Tasks from "@/components/Tasks.vue"
+import Swal from "sweetalert2";
+
 export default {
   name: 'List',
   
@@ -56,7 +58,20 @@ methods:{
       }},
 
   removeList(list){
-  this.$store.dispatch("deleteList", list)
+    Swal.fire({
+        title: "Are you sure you want to delete this list?",
+        text: "You will not be able to undo this delete.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085D6",
+        cancelButtonColor: "#D33",
+        confirmButtonText: "Yes, Delete List"
+      }).then(result => {
+        if (result.value) {
+          this.$store.dispatch("deleteList", list)
+          Swal.fire("Deleted!", "Your list has been deleted.", "Success");
+        }
+      });
 
     }
 },
