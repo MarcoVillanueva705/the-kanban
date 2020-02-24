@@ -1,12 +1,13 @@
 <template>
 <!-- <section class="container-fluid"> -->
-  <div class="task task-color"><b>
+  <div class="task text-center position-relative task-color"><b>
     {{task.description}}</b>
-   
+    <button @click="removeTask(task)" class="btn btn-danger btn-sm">Remove Task</button>
+
+    <p>Move Task</p>
     <select @change="moveTask(task, newListId)" v-model="newListId">
       <option :value="list.id" v-for="list in lists" :key="list.id">{{list.title}}</option>
     </select>
-    <button @click="removeTask(task)" class="btn btn-danger btn-sm">Remove Task</button>
     <button @click="addComment()" class="btn btn-success btn-sm">Add Comment</button>
     
     <div>
@@ -23,6 +24,8 @@
 
 <script>
 import Comments from "@/components/Comments.vue";
+import Swal from "sweetalert2";
+
 export default {
   name: "task",
   props: ["task"],
@@ -44,9 +47,22 @@ export default {
 
   methods: {
     moveTask(task, newListId) {
-      let oldListId = task.listId;
-      task.listId = newListId;
-      this.$store.dispatch("changeTaskList", { task, oldListId });
+Swal.fire({
+        title: "Are you sure you want to move this task?",
+        text: "This task will be moved to another list.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085D6",
+        cancelButtonColor: "#D33",
+        confirmButtonText: "Yes, move task."
+      }).then(result => {
+        if (result.value) {
+          let oldListId = task.listId;
+          task.listId = newListId;
+          this.$store.dispatch("changeTaskList", { task, oldListId });
+          Swal.fire("Task moved!", "Success");
+        }
+      });
     },
     
     addComment() {
@@ -60,7 +76,20 @@ export default {
     },
 
     removeTask(task) {
-      this.$store.dispatch("deleteTask", task);
+      Swal.fire({
+        title: "Are you sure you want to delete this task?",
+        text: "You will not be able to undo this delete.",
+        icon: "warning",
+        showCancelButton: true,
+        confirmButtonColor: "#3085D6",
+        cancelButtonColor: "#D33",
+        confirmButtonText: "Yes, Delete Task"
+      }).then(result => {
+        if (result.value) { 
+          this.$store.dispatch("deleteTask", task);
+          Swal.fire("Deleted!", "Your task has been deleted.", "Success");
+        }
+      });
     }
   },
 
