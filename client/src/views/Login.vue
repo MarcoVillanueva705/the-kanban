@@ -14,8 +14,8 @@
     </form>
 
     <div class="action" @click="loginForm = !loginForm"> <!--What is action doing here?-->
-      <p v-if="loginForm">No account? Click here to Register</p>
-      <p v-else>Already have an account? Click here to Login</p>
+      <p v-if="loginForm"><b class="white">No account? Click here to Register</b></p>
+      <p v-else><b class="white">Already have an account? Click here to Login</b></p>
     </div>
   </div>
 </template>
@@ -57,5 +57,16 @@ export default {
 <style>
 .action {
   cursor: pointer;
+}
+
+.login {
+  background-image: url("https://assets.suredone.com/1868/media-photos/inkfrog176978194-3-classic-woody-wagon-tin-sign-hot-rod-surfing-beach-party-surf-california-d21.jpg?v1");
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+.white {
+  color: blanchedalmond;
 }
 </style>
