@@ -44,7 +44,8 @@ export default new Vuex.Store({
       state.tasks.push(data);
     },
     setTasks(state, data) {
-      Vue.set(state.tasks, data.listId, data.tasks); //NOTE state.tasks[data.listId] =data.tasks
+      Vue.set(state.tasks, data.listId, data.tasks); 
+      //NOTE state.tasks[data.listId] =data.tasks also works
     },
     setComments(state, data) {
       Vue.set(state.comments, data.taskId, data.comments);
@@ -88,12 +89,12 @@ export default new Vuex.Store({
     //#endregion
 
     //#region -- BOARDS --
-    getBoards({ commit, dispatch }) { 
+    async getBoards({ commit, dispatch }) { 
       api.get("boards").then(res => {
         commit("setBoards", res.data);
       });       // NOTE //Why are getBoards and addBoard not async?
     },
-    addBoard({ commit, dispatch }, boardData) {
+    async addBoard({ commit, dispatch }, boardData) {
       api.post("boards", boardData).then(serverBoard => {
         dispatch("getBoards");
       });
