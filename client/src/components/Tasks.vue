@@ -1,5 +1,4 @@
 <template>
-<!-- <section class="container-fluid"> -->
   <div class="task text-center position-relative task-color"><b>
     {{task.description}}</b>
     <button @click="removeTask(task)" class="btn btn-danger btn-sm">Remove Task</button>
@@ -13,13 +12,11 @@
     <div>
       <form @submit.prevent="addComment">
         <input type="text" placeholder="Comment..." v-model="newComment.content" required />
-        <!-- <button type="submit">Comment</button> -->
       </form>
     </div>
 
     <comments v-for="comment in comments" :key="comment.id" :comment="comment" />
   </div>
-<!-- </section> -->
 </template>
 
 <script>
