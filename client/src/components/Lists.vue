@@ -1,6 +1,5 @@
 <template>
   
-  <!-- <section class ="container-fluid"> -->
   <div class="list text-center position-relative col-md-6-lg-4">
     <div class="card" style="width: 18rem;">
       
@@ -18,7 +17,6 @@
        <tasks v-for="task in tasks" :key="task.id" :task="task"/>
     </div>
   </div>
-  <!-- </section> -->
   
 </template>
 
@@ -29,8 +27,9 @@ import Swal from "sweetalert2";
 export default {
   name: 'List',
   
-  props: ['list'], //NOTE //What is props doing here?
-
+  props: ['list'], //NOTE //being used in Board.vue via v-for list in lists,
+  //whatever data comprises a list here, it is displayed onto the Board in 
+  //modified tag <lists
 data() {
 return {
   newTask: {
