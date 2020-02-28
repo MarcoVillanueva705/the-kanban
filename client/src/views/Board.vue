@@ -1,7 +1,5 @@
 <template>
-<!-- <router-link :to="{name: 'boards'}"> -->
-  <!-- <div class="board standout">
-    {{board.title}} -->
+
     <div class="board">
 <router-link :to="{name: 'boards'}" class="standout"><b>{{board.title}}</b></router-link>
 
@@ -18,8 +16,10 @@
 <script>
 import Lists from "@/components/Lists.vue";
 export default {
-name: "board",
+  name: "board",
 
+  props: ["boardId"],
+  
   data() {
     return {
       newList: {
@@ -47,12 +47,11 @@ methods: {
 computed: {
   board() {
     return (
-        //FIXME This does not work on page reload because the boards array is empty in the store
         this.$store.state.boards.find(b => b._id == this.boardId) || {
           title: "Loading..."
         }
       );
-    },// NOTE //Remove board method?
+    },
 
   activeBoard() {
     return this.$store.state.activeBoard;
@@ -65,7 +64,6 @@ computed: {
   Lists
   },
 
-  props: ["boardId"] //NOTE //What is baordId doing here?
 };
 </script>
 <style>
