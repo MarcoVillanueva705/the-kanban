@@ -1,7 +1,6 @@
 import _listService from "../services/ListService"
 import express from "express"
 import { Authorize } from "../middleware/authorize.js"
-import BoardService from "../services/BoardService"
 import TaskService from "../services/TaskService"
 
 export default class ListsController {
