@@ -13,7 +13,7 @@
       <button class="btn btn-warning" type="submit">Create Account</button>
     </form>
 
-    <div class="action" @click="loginForm = !loginForm"> <!--What is action doing here?-->
+    <div class="action" @click="loginForm = !loginForm">
       <p v-if="loginForm"><b class="white">No account? Click here to Register</b></p>
       <p v-else><b class="white">Already have an account? Click here to Login</b></p>
     </div>
