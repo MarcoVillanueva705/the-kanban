@@ -8,7 +8,6 @@
     </form>
     <div v-for="board in boards" :key="board._id">
       <router-link :to="{name: 'board', params: {boardId: board._id}}" class="standout">{{board.title}}</router-link>
-      <!-- <button @click="close(board)" class="btn btn-danger">X</button> -->
       <button @click="close(board)" type="button" class="btn btn-info">Delete Board</button>
     </div>
   </div>
